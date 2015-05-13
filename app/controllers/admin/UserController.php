@@ -3,7 +3,7 @@ class Admin_UserController extends Controller{
 	public function getIndex(){
 
 		$data = array(
-			'users' => User::paginate(3)
+			'users' => User::all()
 			);
 		return View::make('admin.user.index', $data);
 	}
@@ -44,7 +44,7 @@ class Admin_UserController extends Controller{
 
 	public function postUpdate(){
 		$inputs = Input::all();
-
+		
 		$user = User::find($inputs['id']);
 
 		if(is_object($user)){

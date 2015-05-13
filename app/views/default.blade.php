@@ -4,10 +4,10 @@
 <head>
 	<mata charset="utf-8">
 		<title>ระบบบริหารงานวิจัยคณะเทคโนโลยีสารสนเทศและการสื่อสาร</title>
-		<link rel="stylesheet" type="text/css" href="{{ url('assets/bootstrap/css/bootstrap.min.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{ url('assets/bootstrap/css/justified-nav.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{ url('assets/font-awesome/css/font-awesome.min.css')}}">
+		<!-- <link rel="stylesheet" type="text/css" href="{{ url('assets/bootstrap/css/bootstrap.min.css')}}"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="{{ url('assets/font-awesome/css/font-awesome.min.css')}}"> -->
 
+		<link rel="stylesheet" type="text/css" href="{{ url('assets/bootstrap/css/justified-nav.css')}}">
 		<!-- CSS Admin Theme -->
 		<link href="{{ url('assets/admin_theme/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 		<!-- MetisMenu CSS -->
@@ -20,9 +20,19 @@
 		<link href="{{ url('assets/admin_theme/bower_components/morrisjs/morris.css') }}" rel="stylesheet">
 		<!-- Custom Fonts -->
 		<link href="{{ url('assets/admin_theme/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+		<!-- DataTables CSS -->
+		<link href="{{ url('assets/admin_theme/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" rel="stylesheet">
+		<!-- DataTables Responsive CSS -->
+		<link href="{{ url('assets/admin_theme/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link href="{{ url('assets/admin_theme/dist/css/sb-admin-2.css') }}" rel="stylesheet">
+		<!-- Custom Fonts -->
+		<link href="{{ url('assets/admin_theme/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
 	</head>
 
 	<body>
+
 		<div class="container">
 			@if(Request::segment(1) == 'admin')
 			<div class="masthead">
@@ -67,11 +77,10 @@
 		<!-- <script src="{{ url('assets/admin_theme/js/morris-data.js') }}"></script> -->
 
 		<!-- Custom Theme JavaScript -->
-		<script src="{{ url('assets/admin_theme/dist/js/sb-admin-2.js') }}"></script>
-
 		<script src="{{ url('assets/admin_theme/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ url('assets/admin_theme/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
-	
+		<script src="{{ url('assets/admin_theme/dist/js/sb-admin-2.js') }}"></script>
+		
 		<script>
 			$(document).ready(function() {
 				$('#dataTables-example').DataTable({
