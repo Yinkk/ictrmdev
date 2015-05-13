@@ -2,7 +2,7 @@
 class Admin_NewsController extends Controller{
 	public function getIndex(){
 		$data = array(
-			'news' => News::paginate(5)
+			'news' => News::all()
 			);
 		return View::make('admin.news.index', $data);
 	}
