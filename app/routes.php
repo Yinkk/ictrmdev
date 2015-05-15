@@ -27,3 +27,13 @@ Route::group(array('before' => 'auth'), function(){
 	Route::controller('admin/user', 'Admin_UserController');
 	Route::controller('admin', 'AdminController');
 });
+
+
+// Route::get('test',function(){
+
+	
+// 	$user = User::find(37);
+
+// 	return $user->role;
+
+// });

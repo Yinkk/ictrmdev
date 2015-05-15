@@ -3,8 +3,9 @@ class Admin_UserController extends Controller{
 	public function getIndex(){
 
 		$data = array(
-			'users' => User::all()
+			'users' => User::with(['role'])->get()
 			);
+		//return $data;
 		return View::make('admin.user.index', $data);
 	}
 
@@ -16,8 +17,10 @@ class Admin_UserController extends Controller{
 
 		$inputs = Input::all();
 
+		//return $inputs;
+
 		$validate = User::validate($inputs);
-	
+
 		if($validate->fails()){
 			return Redirect::back()
 			->withErrors($validate->messages())
@@ -27,8 +30,11 @@ class Admin_UserController extends Controller{
 			$user->username = $inputs['username'];
 			$user->password = Hash::make($inputs['password']);
 			$user->fullname = $inputs['fullname'];
-			$user->group = $inputs['group'];
+			//$user->role = $inputs['role'];
 			$user->save();
+
+			$u = $user->find($user->id);
+			$u->role()->attach($inputs['role']);
 
 			return Redirect::back()->with('message', 'Save Completed');
 		}
@@ -36,9 +42,9 @@ class Admin_UserController extends Controller{
 
 	public function getUpdate($id){
 		$data = array(
-			'user' => User::find($id)
+			'users' => User::with(['role'])->get()->find($id)
 			);
-
+		//return $data;
 		return View::make('admin.user.form', $data);
 	}
 
@@ -63,6 +69,7 @@ class Admin_UserController extends Controller{
 
 		if(is_object($user)){
 			$user->delete();
+			$user->role()->detach($user->role);
 		}
 		return Redirect::to('admin/user/index')->with('message', 'Delete Completed');
 	}

@@ -43,7 +43,7 @@
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 207px;">Name</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 188px;">Group</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 188px;">Role</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 147px;">Action</th>
                                         </tr>
                                     </thead>
@@ -52,7 +52,11 @@
                                         @foreach($users as $u)
                                         <tr>
                                             <td>{{ $u->fullname }}</td>
-                                            <td>{{ $u->group }}</td>
+                                            <td>
+                                                <?php foreach($u->role as $r) : ?>
+                                                    {{$r->name}}
+                                                <?php endforeach; ?>
+                                            </td>
                                             <td>
                                                 <a href="{{ url("admin/user/update/$u->id") }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
                                                 <a href="{{ url("admin/user/delete/$u->id") }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
