@@ -1,14 +1,27 @@
-@extends('default')
-
-@section('content')
-
-<div class="page-header">
-	<h3>Home Page</h3>
+<html>
+<head>
+	<title>ThaiCreate.Com</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
 	<?php
-	require_once("assets/nusoap/lib/nusoap.php");
+	require_once("lib/nusoap.php");
 	
+	// $client = new nusoap_client("https://ws.up.ac.th/mobile/ClassRoomService.asmx?WSDL", true); 
+	
+	// $params = array(
+	// 	'username' => "yeunyong.ka"
+	// 	);
+	// $data = $client->call("GetStaffInfoResponse", $params);
+
+	// print_r($data);
+	// 
+	// $data = $client->call("HelloWorld", $params); 
+	// echo $data;
+
+	//$wsdl = "https://ws.up.ac.th/mobile/AuthenService.asmx?WSDL";
 	$user = base64_encode("yeunyong.ka");
-	$pass = base64_encode("");
+	$pass = base64_encode("1qazxsw2");
 
 	$method = "Login";
 	$soapaction = "http://tempuri.org/Login";
@@ -26,7 +39,7 @@
 	$response = @$client->send($mysoapmsg,$soapaction);
 	$result = $response['LoginResult'];
 	$SID = $result;
-	//print($SID);
+	print($SID);
 	//$this->session->set_userdata('SID', $SID);
 
 	//$wsdl = "https://ws.up.ac.th/mobile/StaffService.asmx?WSDL";
@@ -44,11 +57,10 @@
 	var_dump($result);
 
 
-	echo $result['Title'];
-	echo $result['FirstName_TH'];
+	//echo $result['Title'];
+	//echo $result['FirstName_TH'];
 	
 
 	?>
-</div>
-
-@stop
+</body>
+</html>
