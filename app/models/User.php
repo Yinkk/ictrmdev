@@ -29,7 +29,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$rules = array(
 			'username' => 'required',
 			'password' => 'required',
-			'fullname' => 'required',
+			'fullname' => 'required'
 			);
 
 		$message = array(

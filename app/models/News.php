@@ -1,12 +1,12 @@
 <?php
-	class News extends Eloquent{
+class News extends Eloquent{
 
-		protected $table = 'news';
+	protected $table = 'news';
 
-		public static function validate($inputs){
+	public static function validate($inputs){
 		$rules = array(
 			'title' => 'required',
-			'detail' => 'required',
+			'detail' => 'required'
 			);
 
 		$message = array(
@@ -17,5 +17,5 @@
 		return Validator::make($inputs, $rules, $message);
 
 	}
-	}
+}
 ?>

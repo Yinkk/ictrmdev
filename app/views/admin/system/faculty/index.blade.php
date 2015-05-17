@@ -4,9 +4,9 @@
 
 <div class="page-header">
   <h3>
-    Data Information
+    Data faculty
     <div class="pull-right">
-      <a href="{{ url('admin/system/create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i>New Data</a>
+      <a href="{{ url('admin/system/faculty/create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i>New faculty</a>
     </div>
   </h3>
 </div>
@@ -43,26 +43,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($facultys as $faculty)
                     <tr>
-                      <td>xxx</td>
-                      <td>xxx</td>
-                      <td>xxx
-                      </td>
+                      <td>{{ $faculty->id }}</td>
+                      <td>{{ $faculty->name_th }}</td>
+                      <td>{{ $faculty->name_eng }}</td>
                       <td>
-                        <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="{{ url("admin/system/faculty/update/$faculty->id") }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                        <a href="{{ url("admin/system/faculty/delete/$faculty->id") }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
-                    <tr>
-                      <td>yyy</td>
-                      <td>yyy</td>
-                      <td>yyy
-                      </td>
-                      <td>
-                        <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -72,6 +63,6 @@
       </div>
     </div>
   </div>
-</div> <!--  end content tap -->
-</div><!--  end row -->
+</div> <!--  end row -->
+
 @stop
