@@ -23,6 +23,10 @@ Route::controller('login', 'LoginController');
 
 //Back End
 Route::group(array('before' => 'auth'), function(){
+	Route::get('admin/system/create/year', array('as'=>'create_year', 'uses' => 'Admin_SystemController@getCreate'));
+	Route::get('admin/system/create/faculty', array('as'=>'create_faculty', 'uses' => 'Admin_SystemController@getCreate'));
+	Route::controller('admin/system/year', 'Admin_SystemController');
+	Route::controller('admin/system/faculty', 'Admin_SystemController');
 	Route::controller('admin/system', 'Admin_SystemController');
 	Route::controller('admin/news', 'Admin_NewsController');
 	Route::controller('admin/user', 'Admin_UserController');

@@ -46,7 +46,18 @@
                         <a href="{{ url('home') }}">หน้าเว็บไซต์</a>
                     </li>
                     <li {{ Request::segment(2) == 'system' ? 'class="active"' : '' }}>
-                        <a href="{{ url('admin/system')}}" class="">ข้อมูลระบบ</a>
+                        <a href="{{ url('admin/system')}}" class="">ข้อมูลระบบ<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="{{ url('admin/system/faculty') }}">ข้อมูลคณะ</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/system/major') }}">ข้อมูลสาขาวิชา</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/system/year') }}">ปีงบประมาณ</a>
+                            </li>
+                        </ul>
                     </li>
                     <li {{ Request::segment(2) == 'news' ? 'class="active"' : '' }}>
                         <a href="{{ url('admin/news') }}"><i class="fa fa-newspaper-o"></i>ข้อมูลข่าว</a>

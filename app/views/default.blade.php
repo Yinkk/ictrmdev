@@ -28,7 +28,7 @@
 		<link href="{{ url('assets/admin_theme/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 		<!-- Custom Fonts -->
 		<link href="{{ url('assets/admin_theme/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
+		
 	</head>
 
 	<body>
