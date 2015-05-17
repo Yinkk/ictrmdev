@@ -3,7 +3,7 @@ class Admin_UserController extends Controller{
 	public function getIndex(){
 
 		$data = array(
-			'users' => User::with(['role'])->get()
+			'users' => User::with('role')->get()
 			);
 		//return $data;
 		return View::make('admin.user.index', $data);
@@ -16,8 +16,6 @@ class Admin_UserController extends Controller{
 	public function postCreate(){
 
 		$inputs = Input::all();
-
-		//return $inputs;
 
 		$validate = User::validate($inputs);
 
@@ -42,24 +40,35 @@ class Admin_UserController extends Controller{
 
 	public function getUpdate($id){
 		$data = array(
-			'users' => User::with(['role'])->get()->find($id)
+			'user' => User::with('role')->find($id)
 			);
 		//return $data;
 		return View::make('admin.user.form', $data);
 	}
 
 	public function postUpdate(){
+
 		$inputs = Input::all();
-		
+		//return $inputs['role'];
 		$user = User::find($inputs['id']);
 
 		if(is_object($user)){
+
 			$user->username = $inputs['username'];
 			$user->password = ! empty($input['password']) ? Hash::make($inputs['password']) : $user->password;
 			$user->fullname = $inputs['fullname'];
-			$user->group = $inputs['group'];
+			//$user->group = $inputs['group'];
 			$user->save();
 
+			if(! empty($inputs['role'])){
+				//deleted table role_user old
+				$user->role()->detach(); 
+				
+				//add table role_user new
+				$u = $user->find($user->id);
+				$u->role()->attach($inputs['role']);
+			}
+			
 			return Redirect::to('admin/user/index')->with('message', 'Update Completed');
 		}
 	}
@@ -69,10 +78,9 @@ class Admin_UserController extends Controller{
 
 		if(is_object($user)){
 			$user->delete();
-			$user->role()->detach($user->role);
+			$user->role()->detach();
 		}
 		return Redirect::to('admin/user/index')->with('message', 'Delete Completed');
 	}
-
 }
 ?>

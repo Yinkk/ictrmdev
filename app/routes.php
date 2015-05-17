@@ -29,11 +29,11 @@ Route::group(array('before' => 'auth'), function(){
 });
 
 
-// Route::get('test',function(){
+Route::get('test',function(){
 
 	
-// 	$user = User::find(37);
+	$user = User::find(25);
 
-// 	return $user->role;
+	return $user->role()->detach();
 
-// });
+});

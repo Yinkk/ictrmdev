@@ -42,6 +42,7 @@
                                 <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info">
                                     <thead>
                                         <tr role="row">
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 20px;">ID</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 207px;">Name</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 188px;">Role</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="" style="width: 147px;">Action</th>
@@ -51,6 +52,7 @@
                                         @if(count($users) > 0)
                                         @foreach($users as $u)
                                         <tr>
+                                            <td>{{ $u->id }}</td>
                                             <td>{{ $u->fullname }}</td>
                                             <td>
                                                 <?php foreach($u->role as $r) : ?>
