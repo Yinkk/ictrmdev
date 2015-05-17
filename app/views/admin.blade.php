@@ -45,8 +45,8 @@
                     <li>
                         <a href="{{ url('home') }}">หน้าเว็บไซต์</a>
                     </li>
-                    <li>
-                        <a href="#" class="">ข้อมูลระบบ</a>
+                    <li {{ Request::segment(2) == 'system' ? 'class="active"' : '' }}>
+                        <a href="{{ url('admin/system')}}" class="">ข้อมูลระบบ</a>
                     </li>
                     <li {{ Request::segment(2) == 'news' ? 'class="active"' : '' }}>
                         <a href="{{ url('admin/news') }}"><i class="fa fa-newspaper-o"></i>ข้อมูลข่าว</a>

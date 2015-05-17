@@ -23,17 +23,18 @@ Route::controller('login', 'LoginController');
 
 //Back End
 Route::group(array('before' => 'auth'), function(){
+	Route::controller('admin/system', 'Admin_SystemController');
 	Route::controller('admin/news', 'Admin_NewsController');
 	Route::controller('admin/user', 'Admin_UserController');
 	Route::controller('admin', 'AdminController');
 });
 
 
-Route::get('test',function(){
+// Route::get('test',function(){
 
 	
-	$user = User::find(25);
+// 	$user = User::find(25);
 
-	return $user->role()->detach();
+// 	return $user->role()->detach();
 
-});
+// });
