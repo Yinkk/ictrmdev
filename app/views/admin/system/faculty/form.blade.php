@@ -34,21 +34,21 @@
 <div class="form-group {{ ! empty($errors->first('name_th')) ? 'has-error' : '' }} " >
 	<label class="control-label col-md-2">Name TH :</label>
 	<div class="col-md-5">
-		<input type="text" name="name_th" value="{{ ! empty($faculty->name_th) ? $faculty->name_th : Input::old('name_th') }}" class="form-control">
+		<input type="text" name="name_th" value="{{ ! empty($facultys->name_th) ? $facultys->name_th : Input::old('name_th') }}" class="form-control">
 	</div>
 </div>
 
 <div class="form-group {{ ! empty($errors->first('name_eng')) ? 'has-error' : '' }} ">
 	<label class="control-label col-md-2">Name ENG :</label>
 	<div class="col-md-5">
-		<textarea class="form-control" rows="5" name="name_eng">{{ ! empty($faculty->name_eng) ? $faculty->name_eng : Input::old('name_eng') }}</textarea>
+		<textarea class="form-control" rows="5" name="name_eng">{{ ! empty($facultys->name_eng) ? $facultys->name_eng : Input::old('name_eng') }}</textarea>
 	</div>
 </div>
 
 <div class="form-group">
 	<div class="col-md-offset-2">
-		@if(! empty($faculty))
-		<input type="hidden" name="id" value="{{ $facuty->id }}">
+		@if(! empty($facultys))
+		<input type="hidden" name="id" value="{{ $facultys->id }}">
 		@endif
 		<input type="submit" value="Save" class="btn btn-primary">
 	</div>

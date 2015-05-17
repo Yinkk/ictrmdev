@@ -12,6 +12,12 @@
 	</h3>
 </div>
 
+@if(Session::has('message'))
+<div class="alert alert-info" style="margin-top: 10px;">
+    {{ Session::get('message') }}
+</div>
+@endif
+
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">

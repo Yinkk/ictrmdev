@@ -33,21 +33,21 @@
 <div class="form-group {{ ! empty($errors->first('name_th')) ? 'has-error' : '' }} " >
 	<label class="control-label col-md-2">Major Name TH :</label>
 	<div class="col-md-5">
-		<input type="text" name="name_th" value="{{ ! empty($major->name_th) ? $major->name_th : Input::old('name_th') }}" class="form-control">
+		<input type="text" name="name_th" value="{{ ! empty($majors->name_th) ? $majors->name_th : Input::old('name_th') }}" class="form-control">
 	</div>
 </div>
 
 <div class="form-group {{ ! empty($errors->first('name_eng')) ? 'has-error' : '' }} ">
 	<label class="control-label col-md-2">Major Name ENG :</label>
 	<div class="col-md-5">
-		<textarea class="form-control" rows="5" name="name_eng">{{ ! empty($major->name_eng) ? $major->name_eng : Input::old('name_eng') }}</textarea>
+		<textarea class="form-control" rows="5" name="name_eng">{{ ! empty($majors->name_eng) ? $majors->name_eng : Input::old('name_eng') }}</textarea>
 	</div>
 </div>
 
 <div class="form-group">
 	<div class="col-md-offset-2">
-		@if(! empty($major))
-		<input type="hidden" name="id" value="{{ $major->id }}">
+		@if(! empty($majors))
+		<input type="hidden" name="id" value="{{ $majors->id }}">
 		@endif
 		<input type="submit" value="Save" class="btn btn-primary">
 	</div>

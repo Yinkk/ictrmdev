@@ -30,5 +30,38 @@ class Admin_MajorController extends BaseController{
 			return Redirect::back()->with('message','Save Completd');
  		}
 	}
+
+	public function getUpdate($id){
+		$data = array(
+			'majors' => Major::find($id)
+			);
+		return View::make('admin.system.major.form', $data);
+	}
+
+	public function postUpdate(){
+
+		$inputs = Input::all();
+
+		$major = Major::find($inputs['id']);
+
+		if(is_object($major)){
+
+			$major->name_th = $inputs['name_th'];
+			$major->name_eng = $inputs['name_eng'];
+			
+			$major->save();
+
+			return Redirect::to('admin/system/major/index')->with('message', 'Update Completed');
+		}
+	}
+
+	public function getDelete($id){
+		$major = User::find($id);
+
+		if(is_object($major)){
+			$major->delete();
+		}
+		return Redirect::to('admin/system/major/index')->with('message', 'Delete Completed');
+	}
 }
 ?>

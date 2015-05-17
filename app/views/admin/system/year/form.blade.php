@@ -33,21 +33,21 @@
 <div class="form-group {{ ! empty($errors->first('year')) ? 'has-error' : '' }} " >
 	<label class="control-label col-md-2">Year :</label>
 	<div class="col-md-5">
-		<input type="text" name="year" value="{{ ! empty($year->year) ? $year->year : Input::old('year') }}" class="form-control">
+		<input type="text" name="year" value="{{ ! empty($years->year) ? $years->year : Input::old('year') }}" class="form-control">
 	</div>
 </div>
 
 <div class="form-group {{ ! empty($errors->first('budget')) ? 'has-error' : '' }} ">
 	<label class="control-label col-md-2">Budget :</label>
 	<div class="col-md-5">
-		<textarea class="form-control" rows="5" name="budget">{{ ! empty($year->budget) ? $year->budget : Input::old('budget') }}</textarea>
+		<textarea class="form-control" rows="5" name="budget">{{ ! empty($years->budget) ? $years->budget : Input::old('budget') }}</textarea>
 	</div>
 </div>
 
 <div class="form-group">
 	<div class="col-md-offset-2">
-		@if(! empty($year))
-		<input type="hidden" name="id" value="{{ $year->id }}">
+		@if(! empty($years))
+		<input type="hidden" name="id" value="{{ $years->id }}">
 		@endif
 		<input type="submit" value="Save" class="btn btn-primary">
 	</div>

@@ -1,6 +1,7 @@
 @extends('admin')
 
 @section('content_admin')
+
 <div class="page-header">
 	<h3>
 		Users
@@ -9,6 +10,12 @@
 		</div>
 	</h3>
 </div>
+
+@if(Session::has('message'))
+<div class="alert alert-info" style="margin-top: 10px;">
+    {{ Session::get('message') }}
+</div>
+@endif
 
 <div class="row">
     <div class="col-lg-12">
