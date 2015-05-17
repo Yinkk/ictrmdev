@@ -33,7 +33,7 @@
 
 	<body>
 
-		<div class="container">
+		<div class="">
 			@if(Request::segment(1) == 'admin')
 			<div class="masthead">
 				<h3 class="text-muted">ระบบบริหารงานวิจัยคณะเทคโนโลยีสารสนเทศและการสื่อสาร</h3>
