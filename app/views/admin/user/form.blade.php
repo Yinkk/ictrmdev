@@ -30,6 +30,7 @@
 	</ul>
 </div>
 @endif
+
 <div class="form-group {{ ! empty($errors->first('username')) ? 'has-error' : '' }} " >
 	<label class="control-label col-md-2">Username :</label>
 	<div class="col-md-5">
@@ -40,7 +41,7 @@
 <div class="form-group {{ ! empty($errors->first('password')) ? 'has-error' : '' }} ">
 	<label class="control-label col-md-2">Password :</label>
 	<div class="col-md-5">
-		<input type="text" name="password" value="{{ Input::old('password') }}" class="form-control">
+		<input type="password" name="password" value="{{ Input::old('password') }}" class="form-control">
 		@if(! empty($user->password))
 		<small>Leave blank if you don't want to edit new password</small>
 		@endif
@@ -57,12 +58,24 @@
 <div class="form-group">
 	<label class="control-label col-md-2">Group</label>
 	<div class="col-md-5">
-		@if(! empty($user->group))
-		<input type="radio" name="group" value="admin" {{ $user->group == 'admin' ? 'checked="checked"' : '' }}>Admin
-		<input type="radio" name="group" value="user" {{ $user->group == 'user' ? 'checked="checked"' : '' }}>User
+
+		@if(! empty($user->role))
+			@foreach($user->role as $r)
+				<input type="checkbox" name="" value="" checked="checked" disabled="disabled" />{{ $r->name }}
+			@endforeach
+
+		<a class="btn btn-warning" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		<i class="fa fa-plus-circle"></i>แก้ไขสิทธิ์</a>
+		<div class="collapse" id="collapseExample">
+			<div class="well">				
+				<input type="checkbox" name="role[]" value="1" />Admin
+				<input type="checkbox" name="role[]" value="2" />User
+			</div>
+		</div>	  
+
 		@else
-		<input type="radio" name="group" value="admin" checked="checked">Admin
-		<input type="radio" name="group" value="user" >User
+		<input type="checkbox" name="role[]" value="1">Admin
+		<input type="checkbox" name="role[]" value="2">User
 		@endif
 
 	</div>
