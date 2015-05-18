@@ -44,6 +44,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::controller('admin', 'AdminController');
 
 
+
 });
 
 
