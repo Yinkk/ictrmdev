@@ -34,7 +34,7 @@
         <div class="masthead">
             <h3 class="text-muted">ระบบบริหารงานวิจัยคณะเทคโนโลยีสารสนเทศและการสื่อสาร</h3>
         </div>
-
+     
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -113,7 +113,10 @@
 
             <div id="page-wrapper" style="min-height: 383px;">
                 <div class="row">
+                
                     @yield('content_admin')
+                    {{ Breadcrumbs::render('admin') }} 
+
                 </div>
             </div>
             <!-- /#page-wrapper -->

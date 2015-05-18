@@ -2,6 +2,8 @@
 
 @section('content_admin')
 
+{{ Breadcrumbs::render('major') }} 
+
 <div class="page-header">
   <h3>
     Data Major

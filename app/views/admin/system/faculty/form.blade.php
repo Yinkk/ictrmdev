@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('content_admin')
-
+{{ Breadcrumbs::render('create'); }} 
 <div class="page-header">
 	<h3>
 		Faculty <small>Create & Update</small>

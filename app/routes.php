@@ -16,6 +16,7 @@ Route::get('/', function()
 	return Redirect::to('home');
 });
 
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 //Front End
 
 Route::controller('home', 'HomeController');
@@ -26,7 +27,16 @@ Route::group(array('before' => 'auth'), function(){
 	//Route::get('admin/system/create/year', array('as'=>'create_year', 'uses' => 'Admin_SystemController@getCreate'));
 	//Route::get('admin/system/create/faculty', array('as'=>'create_faculty', 'uses' => 'Admin_SystemController@getCreate'));
 	//Route::get('admin/system/create/major', array('as'=>'create_major', 'uses' => 'Admin_SystemController@getCreate'));
-	
+	Route::get('admin', ['uses' => 'AdminController@index', 'as' => 'admin']);
+	Route::get('news', ['uses' => 'AdminController@index', 'as' => 'news']);
+	Route::get('user', ['uses' => 'AdminController@index', 'as' => 'user']);
+
+	Route::get('admin/system/faculty/create', ['uses' => 'Admin_FacultyController@getCreate', 'as' => 'create']);
+	Route::get('admin/system/faculty', ['uses' => 'Admin_FacultyController@index', 'as' => 'faculty']);
+	Route::get('admin/system/year', ['uses' => 'Admin_YearController@index', 'as' => 'year']);
+	Route::get('admin/system/major', ['uses' => 'Admin_MajorController@index', 'as' => 'major']);
+	//Route::get('', ['uses' => 'AdminController@index', 'as' => 'news']);
+
 	Route::controller('admin/system/year', 'Admin_YearController');
 	Route::controller('admin/system/major', 'Admin_MajorController');
 	Route::controller('admin/system/faculty', 'Admin_FacultyController');
@@ -34,6 +44,8 @@ Route::group(array('before' => 'auth'), function(){
 	Route::controller('admin/news', 'Admin_NewsController');
 	Route::controller('admin/user', 'Admin_UserController');
 	Route::controller('admin', 'AdminController');
+
+
 });
 
 

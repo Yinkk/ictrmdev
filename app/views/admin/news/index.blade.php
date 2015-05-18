@@ -2,6 +2,8 @@
 
 @section('content_admin')
 
+{{ Breadcrumbs::render('news') }}  
+
 <div class="page-header">
 	<h3>
 		News

@@ -2,6 +2,8 @@
 
 @section('content_admin')
 
+{{ Breadcrumbs::render('faculty'); }}  
+
 <div class="page-header">
   <h3>
     Data faculty

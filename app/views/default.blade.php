@@ -46,7 +46,7 @@
 				</ul>
 			</nav>
 		</div>
-
+		{{ Breadcrumbs::render('home') }}
 		@yield('content')
 		
 		<footer class="well" style="margin-top: 20px;" align="center">

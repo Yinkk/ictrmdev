@@ -2,6 +2,8 @@
 
 @section('content_admin')
 
+{{ Breadcrumbs::render('user') }}  
+
 <div class="page-header">
 	<h3>
 		Users
