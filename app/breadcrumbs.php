@@ -34,9 +34,9 @@ Breadcrumbs::register('major', function($breadcrumbs) {
     $breadcrumbs->push('AdminSystemMajor', route('major'));
 });
 
-Breadcrumbs::register('create', function($breadcrumbs) {
+Breadcrumbs::register('createFormFaculty', function($breadcrumbs) {
     $breadcrumbs->parent('faculty');
-    $breadcrumbs->push('AdminSystemFacultyCreate', route('create'));
+    $breadcrumbs->push('AdminSystemFacultyCreate', route('createFormFaculty'));
 });
 
 
